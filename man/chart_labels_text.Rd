@@ -35,6 +35,7 @@ barchart <- chart_labels_text( barchart,
 \seealso{
 Other Series customization functions: 
 \code{\link{chart_data_fill}()},
+\code{\link{chart_data_labels_series}()},
 \code{\link{chart_data_line_style}()},
 \code{\link{chart_data_line_width}()},
 \code{\link{chart_data_size}()},

@@ -27,6 +27,7 @@ my_scatter <- chart_data_stroke(my_scatter,
 \seealso{
 Other Series customization functions: 
 \code{\link{chart_data_fill}()},
+\code{\link{chart_data_labels_series}()},
 \code{\link{chart_data_line_style}()},
 \code{\link{chart_data_line_width}()},
 \code{\link{chart_data_size}()},

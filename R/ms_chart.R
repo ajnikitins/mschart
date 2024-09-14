@@ -311,6 +311,7 @@ ms_chart <- function(data, x, y, group = NULL, labels = NULL,
   series_lwidth <- rep(2, length(series_names))
   labels_fp <- rep(list(fp_text(font.size = 0)), length(series_names))
   series_smooth <- rep(1, length(series_names))
+  series_labels <- rep(NA, length(series_names))
   out$series_settings <- list(
     fill = setNames(palette_, series_names),
     colour = setNames(palette_, series_names),
@@ -319,7 +320,23 @@ ms_chart <- function(data, x, y, group = NULL, labels = NULL,
     size = setNames(series_size, series_names),
     line_width = setNames(series_lwidth, series_names),
     labels_fp = setNames(labels_fp, series_names),
-    smooth = setNames(series_smooth, series_names)
+    smooth = setNames(series_smooth, series_names),
+    label_settings = setNames(series_labels, series_names)
+  )
+
+  series_lengths <- vapply(out$data_series[, series_names], length, integer(1))
+  series_override_blank <- lapply(series_lengths, function(n) rep(NA, length.out = n))
+  series_override_blank_list <- lapply(series_lengths, function(n) as.list(rep(NA, length.out = n)))
+
+  out$series_settings_override <- list(
+    fill = series_override_blank,
+    colour = series_override_blank,
+    symbol = series_override_blank,
+    line_style = series_override_blank,
+    size = series_override_blank,
+    line_width = series_override_blank,
+    labels_fp = series_override_blank_list,
+    label_settings = series_override_blank_list
   )
 
   out
